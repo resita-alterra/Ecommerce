@@ -8,14 +8,14 @@ import axios from "axios";
 class Dummy extends React.Component {
   constructor(props) {
     super(props);
-    this.cobaGet = this.cobaGet.bind(this);
+    // this.cobaGet = this.cobaGet.bind(this);
   }
 
   cobaGet = e => {
     e.preventDefault();
 
     axios
-      .get({ url: "localhost:6000/dummy" })
+      .get("http://localhost:5000/dummy")
       .then(function(response) {
         console.log(response);
       })
@@ -31,7 +31,7 @@ class Dummy extends React.Component {
             this.cobaGet(e);
           }}
         >
-          geteeeee
+          geteehgf
         </button>
       </div>
     );

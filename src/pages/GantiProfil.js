@@ -1,20 +1,19 @@
 import React from "react";
 import { connect } from "unistore/react";
 import { actions } from "./../store";
-import HeaderPra from "./../components/HeaderPra";
+import HeaderPost from "./../components/HeaderPost";
 import axios from "axios";
 
-class Register extends React.Component {
+class GantiProfil extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_name: "",
-      password: "",
-      alamat: "",
-      ktp: "",
-      hp: "",
-      email: "",
-      foto: ""
+      password: null,
+      alamat: null,
+      ktp: null,
+      hp: null,
+      email: null,
+      foto: null
     };
     this.setAlamat = this.setAlamat.bind(this);
     this.setEmail = this.setEmail.bind(this);
@@ -22,12 +21,7 @@ class Register extends React.Component {
     this.setHp = this.setHp.bind(this);
     this.setKtp = this.setKtp.bind(this);
     this.setPassword = this.setPassword.bind(this);
-    this.setUser = this.setUser.bind(this);
-    this.akuMendaftar = this.akuMendaftar.bind(this);
-  }
-
-  setUser(e) {
-    this.setState({ user_name: e.target.value });
+    this.akuTerapkan = this.akuTerapkan.bind(this);
   }
 
   setPassword(e) {
@@ -54,7 +48,7 @@ class Register extends React.Component {
     this.setState({ foto: e.target.value });
   }
 
-  async akuMendaftar(e) {
+  async akuTerapkan(e) {
     e.preventDefault();
     const self = this;
     console.log(self.state);
@@ -70,13 +64,15 @@ class Register extends React.Component {
     };
 
     await axios
-      .post(self.props.baseUrl + "/user", data)
+      .put(self.props.baseUrl + "/user", data, {
+        headers: { Authorization: "Bearer " + self.props.token }
+      })
       .then(function(response) {
         console.log(response.data);
         axios
           .get(self.props.baseUrl + "/login", {
             params: {
-              user_name: self.state.user_name,
+              user_name: response.data.user_name,
               password: self.state.password
             }
           })
@@ -89,6 +85,7 @@ class Register extends React.Component {
           })
           .catch(function(error) {
             console.log(error);
+            alert(error);
           });
       })
       .catch(function(error) {
@@ -135,23 +132,16 @@ class Register extends React.Component {
   render() {
     return (
       <div>
-        <HeaderPra />
+        <HeaderPost />
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-md-4 form-group">
               <p style={{ fontSize: 20 }}>
-                Silahkan isi form berikut lalu klik tombol mendaftar
+                Silahkan isi form berikut lalu klik tombol terapkan untuk
+                menerapkan perubahan. Silahkan kososngkan bagian yang tidak
+                ingin diubah.
               </p>
               <form>
-                <label for="user_name">Username :</label>
-                <br />
-                <input
-                  type="text"
-                  id="user_name"
-                  onChange={this.setUser}
-                  className="form-control"
-                />
-                <br />
                 <label for="password">Password :</label>
                 <br />
                 <input
@@ -208,10 +198,10 @@ class Register extends React.Component {
                 <br />
                 <button
                   type="submit"
-                  onClick={this.akuMendaftar}
+                  onClick={this.akuTerapkan}
                   className="form-control btn-info"
                 >
-                  Mendaftar
+                  Terapkan
                 </button>
               </form>
             </div>
@@ -225,4 +215,4 @@ class Register extends React.Component {
 export default connect(
   "is_login,baseUrl,identitas,token",
   actions
-)(Register);
+)(GantiProfil);

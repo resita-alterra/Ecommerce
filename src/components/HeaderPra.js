@@ -3,7 +3,56 @@ import { Link } from "react-router-dom";
 
 function HeaderPra() {
   return (
-    <header style={{ boxShadow: " 2px 2px 2px 2px #888888", marginBottom: 15 }}>
+    <header>
+      <nav className="navbar bg-info">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <button
+              type="button"
+              className="navbar-toggle"
+              data-toggle="collapse"
+              data-target="#myNavbar"
+            >
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+              <span className="icon-bar" />
+            </button>
+            <a className="navbar-brand" href="#">
+              UculSo
+            </a>
+          </div>
+          <div className="collapse navbar-collapse" id="myNavbar">
+            <ul className="nav navbar-nav">
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+                <Link to="/koleksi">Koleksi</Link>
+              </li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li>
+                <Link to="/register">
+                  <span className="glyphicon glyphicon-user" /> Mendaftar
+                </Link>
+              </li>
+              <li>
+                <Link to="/login">
+                  <span className="glyphicon glyphicon-log-in" /> Masuk
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+export default HeaderPra;
+
+{
+  /* <header style={{ boxShadow: " 2px 2px 2px 2px #888888", marginBottom: 15 }}>
       <div className="container">
         <div className="row align-items-center">
           <div className="col-md-6 col-sm-6">nh</div>
@@ -28,8 +77,5 @@ function HeaderPra() {
           </div>
         </div>
       </div>
-    </header>
-  );
+    </header> */
 }
-
-export default HeaderPra;
