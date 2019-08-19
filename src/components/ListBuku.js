@@ -8,16 +8,16 @@ function ListBuku(props) {
         let tujuan = "/buku/" + elm.id;
         return (
           <div className="col-md-4 col-sm-12" style={{ marginBottom: 20 }}>
-            <Link to={tujuan}>
+            <Link to={tujuan} style={{ textDecoration: "none" }}>
               <div
-                className="card"
+                className="card text-center"
                 style={{ width: 300, padding: 20, border: "dotted grey 1px" }}
               >
                 <img
                   className="card-img-top"
                   src={elm.url_picture}
                   alt="Card image"
-                  style={{ width: 250 }}
+                  style={{ height: 300, overflow: "scroll" }}
                 />
                 <div className="card-body">
                   <h4 className="card-title">

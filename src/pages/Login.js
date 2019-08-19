@@ -55,35 +55,47 @@ class Login extends React.Component {
         <HeaderPra />
         <div className="container">
           <div className="row">
-            <div
-              className="col-md-3 form-group"
-              style={{ border: "dotted grey 2px", padding: 50 }}
-            >
-              <form>
-                <label for="user">Username : </label>
-                <input
-                  type="text"
-                  id="user"
-                  onChange={this.setUser}
-                  className="form-control"
-                />
-                <br />
-                <label for="pass">Password :</label>
-                <input
-                  type="password"
-                  id="pass"
-                  onChange={this.setPassword}
-                  className="form-control"
-                />
-                <br />
-                <button
-                  onClick={this.handleLogin}
-                  className="form-control btn-info"
-                >
-                  Login
-                </button>
-              </form>
+            <div className="col-md-4" />
+            <div className="col-md-4">
+              <div
+                className="form-group text-center"
+                style={{
+                  border: "dotted grey 2px",
+                  padding: 50
+                }}
+              >
+                <form>
+                  <h3
+                    style={{ marginTop: 0, marginBottom: 30, color: "#563D7C" }}
+                  >
+                    Masuk
+                  </h3>
+                  <label for="user">Username : </label>
+                  <input
+                    type="text"
+                    id="user"
+                    onChange={this.setUser}
+                    className="form-control"
+                  />
+                  <br />
+                  <label for="pass">Password :</label>
+                  <input
+                    type="password"
+                    id="pass"
+                    onChange={this.setPassword}
+                    className="form-control"
+                  />
+                  <br />
+                  <button
+                    onClick={this.handleLogin}
+                    className="form-control btn-info"
+                  >
+                    Login
+                  </button>
+                </form>
+              </div>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       </div>

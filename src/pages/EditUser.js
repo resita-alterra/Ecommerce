@@ -3,7 +3,6 @@ import { connect } from "unistore/react";
 import { actions } from "./../store";
 import HeaderAdmin from "./../components/HeaderAdmin";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 class EditUser extends React.Component {
   constructor(props) {
@@ -99,7 +98,7 @@ class EditUser extends React.Component {
                         <td>{elm.email}</td>
                         <td>
                           <button
-                            className="btn-danger"
+                            className="btn btn-danger"
                             onClick={e => this.hapusUser(e, elm.id)}
                           >
                             Hapus

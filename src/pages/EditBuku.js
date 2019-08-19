@@ -58,6 +58,7 @@ class EditBuku extends React.Component {
         <HeaderPost />
         <div className="container">
           <div className="row">
+            <div className="col-md-4" />
             <div
               className="col-md-4 form-group"
               style={{ border: "dotted grey 2px", padding: 50 }}
@@ -149,6 +150,7 @@ class EditBuku extends React.Component {
                 </button>
               </form>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       </div>

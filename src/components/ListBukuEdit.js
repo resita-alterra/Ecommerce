@@ -34,13 +34,16 @@ class ListBukuEdit extends React.Component {
       <div className="row">
         {this.props.isi.map((elm, key) => {
           return (
-            <div className="col-md-4 col-sm-12">
-              <div className="card" style={{ width: 400 }}>
+            <div className="col-md-4 col-sm-12" style={{ marginBottom: 20 }}>
+              <div
+                className="card text-center"
+                style={{ width: 300, padding: 20, border: "dotted grey 1px" }}
+              >
                 <img
                   className="card-img-top"
                   src={elm.url_picture}
                   alt="Card image"
-                  style={{ height: 300 }}
+                  style={{ height: 300, overflow: "scroll" }}
                 />
                 <div className="card-body">
                   <h4 className="card-title">
@@ -53,9 +56,14 @@ class ListBukuEdit extends React.Component {
                   <p className="card-text">Harga : {elm.harga}</p>
                   <p className="card-text">Stok : {elm.stok}</p>
                   <Link to={"/editbuku/" + elm.id}>
-                    <button>Edit</button>
+                    <button className="btn btn-success" style={{ margin: 20 }}>
+                      Edit
+                    </button>
                   </Link>
-                  <button onClick={e => this.hapusBuku(e, elm.id)}>
+                  <button
+                    className="btn btn-danger"
+                    onClick={e => this.hapusBuku(e, elm.id)}
+                  >
                     Delete
                   </button>
                 </div>

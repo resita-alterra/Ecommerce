@@ -1,0 +1,42 @@
+header {
+  -webkit-box-shadow: 0px 6px 21px -9px rgba(28, 64, 227, 1);
+  -moz-box-shadow: 0px 6px 21px -9px rgba(28, 64, 227, 1);
+  box-shadow: 0px 6px 21px -9px rgba(28, 64, 227, 1);
+}
+#cardprofil {
+  width: 500px;
+  border: dotted grey 2px;
+  padding: 50px;
+  img {
+    width: 400px;
+    border-radius: 50%;
+    border: solid #3f9adf 2px;
+  }
+}
+#kat {
+  margin-left: 10;
+  padding: 10;
+  font-size: 15;
+}
+
+@media (max-width: 420px) {
+  #cardprofil {
+    width: 300px;
+
+    img {
+      width: 200px;
+    }
+  }
+  #koleksi {
+    li {
+      button {
+        font-size: 8px;
+        display: inline;
+      }
+    }
+  }
+  #bacol,
+  #bacol2 {
+    display: none;
+  }
+}

@@ -1,25 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./../assets/css/header.css";
 
 function HeaderPra() {
   return (
     <header>
-      <nav className="navbar bg-info">
+      <nav className="navbar navbar-light bg-info">
         <div className="container-fluid">
           <div className="navbar-header">
             <button
               type="button"
-              className="navbar-toggle"
+              className="navbar-toggle btn-primary btn"
               data-toggle="collapse"
               data-target="#myNavbar"
             >
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
+              <span
+                className="navbar-toggler-icon"
+                style={{ color: "#3F9ADF", fontWeight: 900 }}
+              >
+                . . . .
+              </span>
             </button>
-            <a className="navbar-brand" href="#">
+            <Link to="/" className="navbar-brand">
               UculSo
-            </a>
+            </Link>
           </div>
           <div className="collapse navbar-collapse" id="myNavbar">
             <ul className="nav navbar-nav">

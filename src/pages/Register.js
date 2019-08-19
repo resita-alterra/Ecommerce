@@ -138,7 +138,11 @@ class Register extends React.Component {
         <HeaderPra />
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-md-4 form-group">
+            <div className="col-md-4" />
+            <div
+              className="col-md-4 form-group"
+              style={{ border: "dotted grey 2px", padding: 20 }}
+            >
               <p style={{ fontSize: 20 }}>
                 Silahkan isi form berikut lalu klik tombol mendaftar
               </p>
@@ -215,6 +219,7 @@ class Register extends React.Component {
                 </button>
               </form>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       </div>

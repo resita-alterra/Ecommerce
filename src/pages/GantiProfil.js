@@ -135,6 +135,7 @@ class GantiProfil extends React.Component {
         <HeaderPost />
         <div className="container">
           <div className="row justify-content-center">
+            <div className="col-md-4" />
             <div className="col-md-4 form-group">
               <p style={{ fontSize: 20 }}>
                 Silahkan isi form berikut lalu klik tombol terapkan untuk
@@ -205,6 +206,7 @@ class GantiProfil extends React.Component {
                 </button>
               </form>
             </div>
+            <div className="col-md-4" />
           </div>
         </div>
       </div>

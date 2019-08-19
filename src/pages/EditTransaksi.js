@@ -81,7 +81,7 @@ class EditTransaksi extends React.Component {
                         <td>{elm.status}</td>
                         <td>
                           <button
-                            className="btn-danger"
+                            className="btn btn-danger"
                             onClick={e => this.hapusTrx(e, elm.id)}
                           >
                             Ubah Status

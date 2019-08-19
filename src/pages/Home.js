@@ -4,6 +4,7 @@ import { connect } from "unistore/react";
 import { actions } from "./../store";
 import HeaderPra from "./../components/HeaderPra";
 import HeaderPost from "./../components/HeaderPost";
+import "./../assets/css/header.css";
 // import novel from "./../assets/img/novel.jpg";
 // import komik from "./../assets/img/komik.jpg";
 // import pelajaran from "./../assets/img/pelajaran.png";
@@ -18,17 +19,26 @@ function Home(props) {
       <div>
         <HeaderPost />
         <div className="container">
-          <div
-            className="row d-flex align-items-center"
-            style={{ backgroundColor: "white", height: "84vh" }}
-          >
-            <div className="col-12 align-self-center text-center">
-              <h1 style={{ color: "#8FB2E2", fontSize: 60 }}>
-                Selamat datang di UculSo, {props.identitas.user_name}
-              </h1>
-              <p style={{ fontSize: 20 }}>
-                Silahkan melihat koleksi kami di menu koleksi
-              </p>
+          <div className="row">
+            <div className="col-md-5">
+              <img
+                id="bacol"
+                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paul-sweeney-book-quote-1531936023.jpg?crop=1xw:1xh;center,top&resize=480:*"
+                style={{ width: 470 }}
+              />
+            </div>
+            <div className="col-md-7">
+              <div
+                className="row d-flex align-items-center"
+                style={{ backgroundColor: "white", height: "84vh" }}
+              >
+                <div className="col-12 align-self-center text-center">
+                  <h1 style={{ color: "#8FB2E2", fontSize: 60 }}>
+                    Selamat datang di UculSo, {props.identitas.user_name}.
+                  </h1>
+                  <p style={{ fontSize: 20 }}>Selamat berbelanja</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -39,18 +49,29 @@ function Home(props) {
       <div>
         <HeaderPra />
         <div className="container">
-          <div
-            className="row d-flex align-items-center"
-            style={{ backgroundColor: "white", height: "84vh" }}
-          >
-            <div className="col-12 align-self-center text-center">
-              <h1 style={{ color: "#8FB2E2", fontSize: 60 }}>
-                Selamat datang di UculSo
-              </h1>
-              <p style={{ fontSize: 20 }}>
-                Silahkan melihat koleksi kami di menu koleksi
-              </p>
-              <p>Untuk berbelanja, anda harus mendaftar terlebih dahulu</p>
+          <div className="row">
+            <div className="col-md-5">
+              <img
+                id="bacol2"
+                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/paul-sweeney-book-quote-1531936023.jpg?crop=1xw:1xh;center,top&resize=480:*"
+                style={{ width: 470 }}
+              />
+            </div>
+            <div className="col-md-7">
+              <div
+                className="row d-flex align-items-center"
+                style={{ backgroundColor: "white", height: "84vh" }}
+              >
+                <div className="col-12 align-self-center text-center">
+                  <h1 style={{ color: "#8FB2E2", fontSize: 60 }}>
+                    Selamat datang di UculSo
+                  </h1>
+                  <p style={{ fontSize: 20 }}>
+                    Silahkan melihat koleksi kami di menu koleksi
+                  </p>
+                  <p>Untuk berbelanja, anda harus mendaftar terlebih dahulu</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

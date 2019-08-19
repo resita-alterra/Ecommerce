@@ -81,7 +81,7 @@ class Koleksi extends React.Component {
       header = <HeaderPra />;
     }
     return (
-      <div>
+      <div id="koleksi">
         {header}
         <div className="container">
           <div>
@@ -97,6 +97,7 @@ class Koleksi extends React.Component {
                     return (
                       <li style={{ marginLeft: 10, padding: 10, fontSize: 15 }}>
                         <button
+                          className="btn btn-primary"
                           value={elm}
                           onClick={e => this.gantiKategori(e, "value")}
                         >
@@ -118,6 +119,7 @@ class Koleksi extends React.Component {
                 <li className="list-group-item">Urutkan Berdasarkan</li>
                 <li className="list-group-item">
                   <button
+                    className="btn btn-success"
                     value="harga"
                     onClick={e => this.gantiUrutan(e, "value")}
                   >
@@ -126,6 +128,7 @@ class Koleksi extends React.Component {
                 </li>
                 <li className="list-group-item">
                   <button
+                    className="btn btn-success"
                     value="judul"
                     onClick={e => this.gantiUrutan(e, "value")}
                   >
@@ -134,6 +137,7 @@ class Koleksi extends React.Component {
                 </li>
                 <li className="list-group-item">
                   <button
+                    className="btn btn-success"
                     value="stok"
                     onClick={e => this.gantiUrutan(e, "value")}
                   >

@@ -5,6 +5,7 @@ import { actions } from "./../store";
 import HeaderPost from "./../components/HeaderPost";
 import axios from "axios";
 import HeaderAdmin from "./../components/HeaderAdmin";
+import "./../assets/css/header.css";
 
 class Profile extends React.Component {
   constructor(props) {
@@ -33,6 +34,7 @@ class Profile extends React.Component {
           <HeaderAdmin />
           <div className="container">
             <div className="row">
+              <div className="col-md-4" />
               <div className="col-md-4">
                 <div class="card bg-info" style={{ padding: 50 }}>
                   <div class="card-body">
@@ -63,6 +65,7 @@ class Profile extends React.Component {
                   </div>
                 </div>
               </div>
+              <div className="col-md-4" />
             </div>
           </div>
         </div>
@@ -73,21 +76,17 @@ class Profile extends React.Component {
           <HeaderPost />
           <div className="container">
             <div className="row">
-              <div className="col-md-2">
+              <div className="col-md-3" style={{ fontSize: 30 }}>
                 <Link to={"/transaksiku"}>Transaksiku</Link>
                 <br />
                 <Link to={"/bukuku"}>Bukuku</Link>
               </div>
               <div className="col-md-6">
-                <div
-                  class="card"
-                  style={{ width: 500, border: "dotted grey 2px", padding: 50 }}
-                >
+                <div id="cardprofil" class="card">
                   <img
                     class="card-img-top"
                     src={this.props.identitas.foto}
                     alt="Card image"
-                    style={{ width: 400 }}
                   />
                   <div class="card-body">
                     <h3 class="card-title">{this.props.identitas.user_name}</h3>
@@ -108,8 +107,11 @@ class Profile extends React.Component {
                 <p>{this.props.identitas.email}</p>
                 <img src={this.props.identitas.foto} /> */}
               </div>
-              <div className="col-md-2" />
-              <Link to="/tambahbuku">Tambah buku</Link>
+              <div className="col-md-3">
+                <Link to="/tambahbuku" style={{ fontSize: 30 }}>
+                  Tambah buku
+                </Link>
+              </div>
             </div>
           </div>
         </div>

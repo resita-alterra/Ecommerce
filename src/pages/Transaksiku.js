@@ -39,9 +39,9 @@ class Transaksiku extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <p>sebagai penjual</p>
+              <h2 style={{ color: "#23527C" }}>Sebagai Penjual :</h2>
               <ListTransaksi isi={this.state.penjual} sebagai="penjual" />
-              <p>sebagai pembeli</p>
+              <h2 style={{ color: "#23527C" }}>Sebagai Pembeli :</h2>
               <ListTransaksi isi={this.state.pembeli} sebagai="pembeli" />
             </div>
           </div>

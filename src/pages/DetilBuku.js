@@ -52,6 +52,7 @@ class DetilBuku extends React.Component {
       axios(data)
         .then(function(response) {
           console.log(response.data);
+          alert("Berhasil");
 
           self.props.history.push("/profile");
         })
