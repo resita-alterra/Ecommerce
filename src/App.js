@@ -19,6 +19,7 @@ import GantiProfil from "./pages/GantiProfil";
 import EditUser from "./pages/EditUser";
 import EditTransaksi from "./pages/EditTransaksi";
 import NotFound from "./pages/NotFound";
+import Keranjangku from "./pages/Keranjangku";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/gantiprofil" component={GantiProfil} />
           <Route exact path="/edituser" component={EditUser} />
           <Route exact path="/edittransaksi" component={EditTransaksi} />
+          <Route exact path="/keranjangku" component={Keranjangku} />
           <Route component={NotFound} />
         </Switch>
       </BrowserRouter>

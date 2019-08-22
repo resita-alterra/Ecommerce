@@ -41,7 +41,7 @@ class DetilBuku extends React.Component {
       data: {
         buku_id: self.props.match.params.id,
         jumlah: self.state.banyak,
-        status: "pesan"
+        status: "keranjang"
       },
       headers: {
         Authorization: "Bearer " + self.props.token

@@ -80,6 +80,8 @@ class Profile extends React.Component {
                 <Link to={"/transaksiku"}>Transaksiku</Link>
                 <br />
                 <Link to={"/bukuku"}>Bukuku</Link>
+                <br />
+                <Link to="/keranjangku">Keranjangku</Link>
               </div>
               <div className="col-md-6">
                 <div id="cardprofil" class="card">
