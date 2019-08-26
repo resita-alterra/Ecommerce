@@ -74,15 +74,48 @@ class Profile extends React.Component {
       return (
         <div>
           <HeaderPost />
+          <nav className="navbar bg-success">
+            <div className="container-fluid">
+              <div className="navbar-header">
+                <button
+                  type="button"
+                  className="navbar-toggle btn-primary btn"
+                  data-toggle="collapse"
+                  data-target="#myMenus"
+                >
+                  <span
+                    className="navbar-toggler-icon"
+                    style={{ color: "#3F9ADF", fontWeight: 900 }}
+                  >
+                    . . . .
+                  </span>
+                </button>
+                <span className="navbar-brand">Menu : </span>
+              </div>
+              <div className="collapse navbar-collapse" id="myMenus">
+                <ul className="nav navbar-nav navbar-right">
+                  <li>
+                    <Link to="/transaksiku">Transaksiku</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/bukuku">Bukuku</Link>
+                  </li>
+
+                  <li>
+                    <Link to="/keranjangku">Keranjangku</Link>
+                  </li>
+                  <li>
+                    <Link to="/tambahbuku">Tambah Buku</Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
           <div className="container">
             <div className="row">
-              <div className="col-md-3" style={{ fontSize: 30 }}>
-                <Link to={"/transaksiku"}>Transaksiku</Link>
-                <br />
-                <Link to={"/bukuku"}>Bukuku</Link>
-                <br />
-                <Link to="/keranjangku">Keranjangku</Link>
-              </div>
+              <div className="col-md-3" />
+
               <div className="col-md-6">
                 <div id="cardprofil" class="card">
                   <img
@@ -93,26 +126,14 @@ class Profile extends React.Component {
                   <div class="card-body">
                     <h3 class="card-title">{this.props.identitas.user_name}</h3>
                     <p class="card-text">{this.props.identitas.email}</p>
-                    <p>{this.props.identitas.hp}</p>
+                    <p>Kontak : {this.props.identitas.hp}</p>
                     <p>{this.props.identitas.alamat}</p>
-                    <p>{this.props.identitas.ktp}</p>
+                    <p>Rekening : {this.props.identitas.rekening}</p>
                     <Link to="/gantiprofil">
                       <button class="btn btn-primary">Ubah Profil</button>
                     </Link>
                   </div>
                 </div>
-                {/* <p>Ini Profile</p>
-                <p>{this.props.identitas.user_name}</p>
-                <p>{this.props.identitas.alamat}</p>
-                <p>{this.props.identitas.ktp}</p>
-                <p>{this.props.identitas.hp}</p>
-                <p>{this.props.identitas.email}</p>
-                <img src={this.props.identitas.foto} /> */}
-              </div>
-              <div className="col-md-3">
-                <Link to="/tambahbuku" style={{ fontSize: 30 }}>
-                  Tambah buku
-                </Link>
               </div>
             </div>
           </div>

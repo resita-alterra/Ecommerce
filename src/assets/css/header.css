@@ -18,6 +18,10 @@ header {
   padding: 10;
   font-size: 15;
 }
+.table {
+  overflow: scroll;
+}
+
 @media (max-width: 420px) {
   #cardprofil {
     width: 300px;
@@ -25,10 +29,10 @@ header {
   #cardprofil img {
     width: 200px;
   }
-  #koleksi li button {
+  /* #koleksi li button {
     font-size: 8px;
     display: inline;
-  }
+  } */
   #bacol,
   #bacol2 {
     display: none;

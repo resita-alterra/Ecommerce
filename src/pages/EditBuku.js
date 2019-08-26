@@ -4,8 +4,6 @@ import { actions } from "./../store";
 import axios from "axios";
 import HeaderPost from "../components/HeaderPost";
 
-// self.props.match.params.id
-
 class EditBuku extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +14,7 @@ class EditBuku extends React.Component {
       harga: null,
       stok: null,
       tipe: null,
+      deskripsi: null,
       url_picture: null
     };
     this.akuEdit = this.akuEdit.bind(this);
@@ -27,6 +26,7 @@ class EditBuku extends React.Component {
     console.log(this.state);
     let data = {
       judul: self.state.judul,
+      deskripsi: self.state.deskripsi,
       pengarang: self.state.pengarang,
       penerbit: self.state.penerbit,
       harga: self.state.harga,
@@ -38,7 +38,8 @@ class EditBuku extends React.Component {
     let aturan = {
       method: "PUT",
       url: self.props.baseUrl + "/bacaan/" + self.props.match.params.id,
-      data: data
+      data: data,
+      headers: { Authorization: "Bearer " + self.props.token }
     };
 
     axios(aturan)
@@ -142,11 +143,23 @@ class EditBuku extends React.Component {
                   className="form-control"
                 />
                 <br />
+                <label for="deskripsi">Deskripsi</label>
+                <br />
+                <textarea
+                  type="text"
+                  id="deskripsi"
+                  onChange={e => {
+                    e.preventDefault();
+                    this.setState({ deskripsi: e.target.value });
+                  }}
+                  className="form-control"
+                />
+                <br />
                 <button
                   className="form-control btn-info"
                   onClick={this.akuEdit}
                 >
-                  Tambahkan Buku
+                  Edit Buku
                 </button>
               </form>
             </div>

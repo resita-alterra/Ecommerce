@@ -4,10 +4,6 @@ import { actions } from "./../store";
 import { connect } from "unistore/react";
 import axios from "axios";
 
-//   hapusBuku(state, id) {
-
-//   }
-
 class ListBukuEdit extends React.Component {
   constructor(props) {
     super(props);
@@ -18,10 +14,13 @@ class ListBukuEdit extends React.Component {
     const self = this;
     e.preventDefault();
     axios
-      .delete(self.props.baseUrl + "/bacaan/" + id)
+      .delete(self.props.baseUrl + "/bacaan/" + id, {
+        headers: { Authorization: "Bearer " + self.props.token }
+      })
       .then(function(response) {
         console.log(response);
         alert("berhasil menghapus");
+        self.props.refresh();
       })
       .catch(function(error) {
         console.log(error);
@@ -52,9 +51,9 @@ class ListBukuEdit extends React.Component {
                   </h4>
                   <p className="card-text">Pengarang : {elm.pengarang}</p>
                   <p className="card-text">Penerbit : {elm.penerbit}</p>
-                  {/* <p className="card-text">Tipe : {elm.tipe}</p> */}
                   <p className="card-text">Harga : {elm.harga}</p>
                   <p className="card-text">Stok : {elm.stok}</p>
+                  <p>Deskripsi: {elm.deskripsi}</p>
                   <Link to={"/editbuku/" + elm.id}>
                     <button className="btn btn-success" style={{ margin: 20 }}>
                       Edit

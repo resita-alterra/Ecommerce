@@ -10,14 +10,18 @@ class EditTransaksi extends React.Component {
     this.state = {
       trx: []
     };
-    this.hapusTrx = this.hapusTrx.bind(this);
+    this.ubahTrx = this.ubahTrx.bind(this);
   }
 
   componentDidMount() {
     const self = this;
 
     axios
-      .get(self.props.baseUrl + "/transaksi/admin")
+      .get(self.props.baseUrl + "/transaksi/admin", {
+        headers: {
+          Authorization: "Bearer " + self.props.token
+        }
+      })
       .then(function(response) {
         let hasil = response.data;
         self.setState({ trx: hasil });
@@ -29,11 +33,19 @@ class EditTransaksi extends React.Component {
       });
   }
 
-  hapusTrx(e, id) {
+  ubahTrx(e, id) {
     const self = this;
     e.preventDefault();
     axios
-      .put(self.props.baseUrl + "/transaksi/" + id, { status: "Terkirim" })
+      .put(
+        self.props.baseUrl + "/transaksi/admin/" + id,
+        { status: "terkirim" },
+        {
+          headers: {
+            Authorization: "Bearer " + self.props.token
+          }
+        }
+      )
       .then(function(response) {
         console.log(response);
         console.log(self.props.identitas);
@@ -82,7 +94,7 @@ class EditTransaksi extends React.Component {
                         <td>
                           <button
                             className="btn btn-danger"
-                            onClick={e => this.hapusTrx(e, elm.id)}
+                            onClick={e => this.ubahTrx(e, elm.id)}
                           >
                             Ubah Status
                           </button>

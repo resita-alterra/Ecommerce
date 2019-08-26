@@ -9,6 +9,7 @@ class TambahBuku extends React.Component {
     super(props);
     this.state = {
       judul: null,
+      deskripsi: null,
       pengarang: null,
       penerbit: null,
       harga: null,
@@ -25,6 +26,7 @@ class TambahBuku extends React.Component {
     console.log(this.state);
     let data = {
       judul: self.state.judul,
+      deskripsi: self.state.deskripsi,
       pengarang: self.state.pengarang,
       penerbit: self.state.penerbit,
       harga: self.state.harga,
@@ -46,6 +48,7 @@ class TambahBuku extends React.Component {
       .then(function(response) {
         console.log(response.data);
         alert("sukses");
+        self.props.history.push("/bukuku");
       })
       .catch(function(error) {
         console.log(error);
@@ -72,6 +75,18 @@ class TambahBuku extends React.Component {
                   onChange={e => {
                     e.preventDefault();
                     this.setState({ judul: e.target.value });
+                  }}
+                  className="form-control"
+                />
+                <br />
+                <label for="deskripsi">Deskripsi</label>
+                <br />
+                <input
+                  type="text"
+                  id="deskripsi"
+                  onChange={e => {
+                    e.preventDefault();
+                    this.setState({ deskripsi: e.target.value });
                   }}
                   className="form-control"
                 />

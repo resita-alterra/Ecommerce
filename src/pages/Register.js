@@ -11,7 +11,7 @@ class Register extends React.Component {
       user_name: "",
       password: "",
       alamat: "",
-      ktp: "",
+      rekening: "",
       hp: "",
       email: "",
       foto: ""
@@ -20,7 +20,7 @@ class Register extends React.Component {
     this.setEmail = this.setEmail.bind(this);
     this.setFoto = this.setFoto.bind(this);
     this.setHp = this.setHp.bind(this);
-    this.setKtp = this.setKtp.bind(this);
+    this.setRekening = this.setRekening.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.setUser = this.setUser.bind(this);
     this.akuMendaftar = this.akuMendaftar.bind(this);
@@ -38,8 +38,8 @@ class Register extends React.Component {
     this.setState({ alamat: e.target.value });
   }
 
-  setKtp(e) {
-    this.setState({ ktp: e.target.value });
+  setRekening(e) {
+    this.setState({ rekening: e.target.value });
   }
 
   setHp(e) {
@@ -63,7 +63,7 @@ class Register extends React.Component {
       user_name: self.state.user_name,
       password: self.state.password,
       alamat: self.state.alamat,
-      ktp: self.state.ktp,
+      rekening: self.state.rekening,
       hp: self.state.hp,
       email: self.state.email,
       foto: self.state.foto
@@ -95,41 +95,6 @@ class Register extends React.Component {
         console.log(error);
         alert(error);
       });
-
-    // await axios
-    //   .get(self.props.baseUrl + "/login", {
-    //     params: {
-    //       user_name: self.state.user_name,
-    //       password: self.state.password
-    //     }
-    //   })
-    //   .then(function(response) {
-    //     let token = response.data.token;
-    //     self.props.setToken(token);
-    //     self.props.login();
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    // axios({
-    //   method: "post",
-    //   url: "http://0.0.0.0:6000/user",
-    //   data: {
-    //     user_name: self.state.user_name,
-    //     password: self.state.password,
-    //     alamat: self.state.alamat,
-    //     ktp: self.state.ktp,
-    //     hp: self.state.hp,
-    //     email: self.state.email,
-    //     foto: self.state.foto
-    //   },
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // });
-    // console.log(self.props);
-    // self.props.history.push("/profile");
   }
 
   render() {
@@ -174,12 +139,12 @@ class Register extends React.Component {
                   className="form-control"
                 />
                 <br />
-                <label for="ktp">No. Rekening :</label>
+                <label for="rekening">No. Rekening :</label>
                 <br />
                 <input
                   type="text"
-                  id="ktp"
-                  onChange={this.setKtp}
+                  id="rekening"
+                  onChange={this.setRekening}
                   className="form-control"
                 />
                 <br />

@@ -20,16 +20,16 @@ function ListBuku(props) {
                   style={{ height: 300, overflow: "scroll" }}
                 />
                 <div className="card-body">
-                  <h4 className="card-title">
+                  <p className="card-title">
                     {elm.judul}
                     <span style={{ fontWeight: 200 }}>({elm.tipe})</span>
-                  </h4>
+                  </p>
 
                   <p className="card-text">Pengarang : {elm.pengarang}</p>
                   <p className="card-text">Penerbit : {elm.penerbit}</p>
-                  {/* <p className="card-text">Tipe : {elm.tipe}</p> */}
                   <p className="card-text">Harga : {elm.harga}</p>
                   <p className="card-text">Stok : {elm.stok}</p>
+                  <p className="card-text">Penjual : {elm.user_name}</p>
                 </div>
               </div>
             </Link>
@@ -41,16 +41,3 @@ function ListBuku(props) {
 }
 
 export default ListBuku;
-
-// {props.isi.map((elm, key) => {
-//     return (
-//       <div>
-//         <p>Ini list buku</p>
-//         <p>{elm.judul}</p>
-//         <p>{elm.pengarang}</p>
-//         <p>{elm.penerbit}</p>
-//         <p>{elm.harga}</p>
-//         <p>{elm.stok}</p>
-//       </div>
-//     );
-//   })}

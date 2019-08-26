@@ -5,7 +5,6 @@ import HeaderPra from "./../components/HeaderPra";
 import HeaderPost from "./../components/HeaderPost";
 import ListBuku from "./../components/ListBuku";
 import axios from "axios";
-import MenuSamping from "./../components/MenuSamping";
 
 class Koleksi extends React.Component {
   constructor(props) {
@@ -17,6 +16,7 @@ class Koleksi extends React.Component {
     };
     this.gantiKategori = this.gantiKategori.bind(this);
     this.gantiUrutan = this.gantiUrutan.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   gantiUrutan(e) {
@@ -85,28 +85,49 @@ class Koleksi extends React.Component {
         {header}
         <div className="container">
           <div>
-            <nav class="navbar navbar-default">
-              <div class="container-fluid">
-                <div class="navbar-header">
-                  <a class="navbar-brand" href="#">
-                    Kategori :
-                  </a>
+            {/* Navigasi Kategori */}
+            <nav className="navbar bg-success">
+              <div className="container-fluid">
+                <div className="navbar-header">
+                  <button
+                    type="button"
+                    className="navbar-toggle btn-primary btn"
+                    data-toggle="collapse"
+                    data-target="#myKategori"
+                  >
+                    <span
+                      className="navbar-toggler-icon"
+                      style={{ color: "#3F9ADF", fontWeight: 900 }}
+                    >
+                      . . . .
+                    </span>
+                  </button>
+                  <span
+                    onClick={this.componentDidMount}
+                    className="navbar-brand"
+                  >
+                    Kategori
+                  </span>
                 </div>
-                <ul class="nav navbar-nav">
-                  {kategori.map((elm, key) => {
-                    return (
-                      <li style={{ marginLeft: 10, padding: 10, fontSize: 15 }}>
-                        <button
-                          className="btn btn-primary"
-                          value={elm}
-                          onClick={e => this.gantiKategori(e, "value")}
+                <div className="collapse navbar-collapse" id="myKategori">
+                  <ul className="nav navbar-nav navbar-right">
+                    {kategori.map((elm, key) => {
+                      return (
+                        <li
+                          style={{ marginLeft: 10, padding: 10, fontSize: 15 }}
                         >
-                          {elm}
-                        </button>
-                      </li>
-                    );
-                  })}
-                </ul>
+                          <button
+                            className="btn btn-primary"
+                            value={elm}
+                            onClick={e => this.gantiKategori(e, "value")}
+                          >
+                            {elm}
+                          </button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
               </div>
             </nav>
           </div>
@@ -115,36 +136,60 @@ class Koleksi extends React.Component {
               <ListBuku isi={this.state.buku} />
             </div>
             <div className="col-md-2">
-              <ul className="list-group">
-                <li className="list-group-item">Urutkan Berdasarkan</li>
-                <li className="list-group-item">
-                  <button
-                    className="btn btn-success"
-                    value="harga"
-                    onClick={e => this.gantiUrutan(e, "value")}
-                  >
-                    harga
-                  </button>
-                </li>
-                <li className="list-group-item">
-                  <button
-                    className="btn btn-success"
-                    value="judul"
-                    onClick={e => this.gantiUrutan(e, "value")}
-                  >
-                    judul
-                  </button>
-                </li>
-                <li className="list-group-item">
-                  <button
-                    className="btn btn-success"
-                    value="stok"
-                    onClick={e => this.gantiUrutan(e, "value")}
-                  >
-                    stok
-                  </button>
-                </li>
-              </ul>
+              {/* Navigasi Urutan */}
+              <nav className="navbar bg-success">
+                <div className="container-fluid">
+                  <div className="navbar-header">
+                    <button
+                      type="button"
+                      className="navbar-toggle btn-primary btn"
+                      data-toggle="collapse"
+                      data-target="#myUrutan"
+                    >
+                      <span
+                        className="navbar-toggler-icon"
+                        style={{ color: "#3F9ADF", fontWeight: 900 }}
+                      >
+                        . . . .
+                      </span>
+                    </button>
+                    <span className="navbar-brand">Urutkan : </span>
+                  </div>
+                  <div className="collapse navbar-collapse" id="myUrutan">
+                    <ul className="nav navbar-nav navbar-right">
+                      <li style={{ margin: 20 }}>
+                        <button
+                          className="btn btn-success"
+                          value="harga"
+                          onClick={e => this.gantiUrutan(e, "value")}
+                        >
+                          harga
+                        </button>
+                      </li>
+
+                      <li style={{ margin: 20 }}>
+                        <button
+                          className="btn btn-success"
+                          value="judul"
+                          onClick={e => this.gantiUrutan(e, "value")}
+                        >
+                          judul
+                        </button>
+                      </li>
+
+                      <li style={{ margin: 20 }}>
+                        <button
+                          className="btn btn-success"
+                          value="stok"
+                          onClick={e => this.gantiUrutan(e, "value")}
+                        >
+                          stok
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
         </div>

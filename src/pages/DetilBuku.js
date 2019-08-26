@@ -54,7 +54,7 @@ class DetilBuku extends React.Component {
           console.log(response.data);
           alert("Berhasil");
 
-          self.props.history.push("/profile");
+          self.props.history.push("/koleksi");
         })
         .catch(function(error) {
           console.log(error);
@@ -77,29 +77,40 @@ class DetilBuku extends React.Component {
       <div>
         {header}
         <div className="container">
-          <div className="card" style={{ width: 400 }}>
-            <img
-              className="card-img-top"
-              src={this.state.buku.url_picture}
-              alt="Card image"
-              style={{ height: 300 }}
-            />
-            <div className="card-body">
-              <h4 className="card-title">{this.state.buku.judul}</h4>
-              <p className="card-text">
-                Pengarang : {this.state.buku.pengarang}
-              </p>
-              <p className="card-text">Penerbit : {this.state.buku.penerbit}</p>
-              <p className="card-text">Harga : {this.state.buku.harga}</p>
-              <p className="card-text">Stok : {this.state.buku.stok}</p>
-              <input
-                type="number"
-                name="quantity"
-                min="1"
-                max={this.state.buku.stok}
-                onChange={this.Tambah}
-              />
-              <button onClick={this.Beli}>Beli</button>
+          <div className="card" style={{ maxWidth: 800 }}>
+            <div className="row no-gutters">
+              <div className="col-md-4">
+                <img
+                  className="card-img-top"
+                  src={this.state.buku.url_picture}
+                  alt="Card image"
+                  style={{ height: 300 }}
+                />
+              </div>
+              <div className="col-md-8">
+                <div className="card-body">
+                  <h4 className="card-title">{this.state.buku.judul}</h4>
+                  <p className="card-text">
+                    Pengarang : {this.state.buku.pengarang}
+                  </p>
+                  <p className="card-text">
+                    Penerbit : {this.state.buku.penerbit}
+                  </p>
+                  <p className="card-text">Harga : {this.state.buku.harga}</p>
+                  <p className="card-text">Stok : {this.state.buku.stok}</p>
+                  <p>Penjual : {this.state.buku.user_name}</p>
+                  <p>Deskripsi : </p>
+                  <p>{this.state.buku.deskripsi}</p>
+                  <input
+                    type="number"
+                    name="quantity"
+                    min="1"
+                    max={this.state.buku.stok}
+                    onChange={this.Tambah}
+                  />
+                  <button onClick={this.Beli}>Beli</button>
+                </div>
+              </div>
             </div>
           </div>
         </div>

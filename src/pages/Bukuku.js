@@ -1,6 +1,4 @@
-// self.props.match.params.genre
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "unistore/react";
 import { actions } from "./../store";
 import HeaderPost from "./../components/HeaderPost";
@@ -13,6 +11,7 @@ class Bukuku extends React.Component {
     this.state = {
       buku: []
     };
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +37,10 @@ class Bukuku extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <ListBukuEdit isi={this.state.buku} />
+              <ListBukuEdit
+                isi={this.state.buku}
+                refresh={this.componentDidMount}
+              />
             </div>
           </div>
         </div>

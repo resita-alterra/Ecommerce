@@ -3,6 +3,7 @@ import { connect } from "unistore/react";
 import { actions } from "./../store";
 import HeaderAdmin from "./../components/HeaderAdmin";
 import axios from "axios";
+import "./../assets/css/header.css";
 
 class EditUser extends React.Component {
   constructor(props) {
@@ -17,7 +18,9 @@ class EditUser extends React.Component {
     const self = this;
 
     axios
-      .get(self.props.baseUrl + "/user/admin")
+      .get(self.props.baseUrl + "/user/admin", {
+        headers: { Authorization: "Bearer " + self.props.token }
+      })
       .then(function(response) {
         let hasil = response.data;
         self.setState({ orang: hasil });
@@ -29,29 +32,13 @@ class EditUser extends React.Component {
       });
   }
 
-  // componentDidUpdate = (prevProps, prevState) => {
-  //   if (prevState.orang !== this.state.orang) {
-  //     const self = this;
-
-  //     axios
-  //       .get(self.props.baseUrl + "/user/admin")
-  //       .then(function(response) {
-  //         let hasil = response.data;
-  //         self.setState({ orang: hasil });
-  //         console.log(self.state);
-  //       })
-  //       .catch(function(error) {
-  //         console.log(error);
-  //         alert(error);
-  //       });
-  //   }
-  // };
-
   hapusUser(e, id) {
     const self = this;
     e.preventDefault();
     axios
-      .delete(self.props.baseUrl + "/user/" + id)
+      .delete(self.props.baseUrl + "/user/" + id, {
+        headers: { Authorization: "Bearer " + self.props.token }
+      })
       .then(function(response) {
         console.log(response);
         self.componentDidMount();
@@ -93,7 +80,7 @@ class EditUser extends React.Component {
                         <td>{elm.id}</td>
                         <td>{elm.user_name}</td>
                         <td>{elm.alamat}</td>
-                        <td>{elm.ktp}</td>
+                        <td>{elm.rekening}</td>
                         <td>{elm.hp}</td>
                         <td>{elm.email}</td>
                         <td>

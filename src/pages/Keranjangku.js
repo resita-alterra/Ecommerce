@@ -3,7 +3,6 @@ import { connect } from "unistore/react";
 import { actions } from "./../store";
 import HeaderPost from "./../components/HeaderPost";
 import axios from "axios";
-import ListTransaksi from "../components/ListTransaksi";
 
 class Keranjangku extends React.Component {
   constructor(props) {
@@ -12,6 +11,23 @@ class Keranjangku extends React.Component {
       keranjang: []
     };
     this.pesan = this.pesan.bind(this);
+    this.hapusKeranjang = this.hapusKeranjang.bind(this);
+  }
+
+  hapusKeranjang(e, id) {
+    const self = this;
+    axios
+      .delete(self.props.baseUrl + "/transaksi/" + id, {
+        headers: { Authorization: "Bearer " + self.props.token }
+      })
+      .then(function(response) {
+        console.log(response);
+        self.componentDidMount();
+      })
+      .catch(function(error) {
+        console.log(error);
+        alert(error);
+      });
   }
 
   componentDidMount() {
@@ -36,7 +52,11 @@ class Keranjangku extends React.Component {
     for (let i = 0; i < self.state.keranjang.length; i++) {
       let id = self.state.keranjang[i].id;
       axios
-        .put(self.props.baseUrl + "/transaksi/" + id, { status: "pesan" })
+        .put(
+          self.props.baseUrl + "/transaksi/" + id,
+          { status: "pesan" },
+          { headers: { Authorization: "Bearer " + self.props.token } }
+        )
         .then(function(response) {
           console.log(response);
           console.log(self.props.identitas);
@@ -69,7 +89,42 @@ class Keranjangku extends React.Component {
           <div className="row">
             <div className="col-md-12">
               <h2 style={{ color: "#23527C" }}>Keranjangku :</h2>
-              <ListTransaksi isi={this.state.keranjang} sebagai="pembeli" />
+              <div>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>Nomor</th>
+                      <th>Judul</th>
+                      <th>Harga</th>
+                      <th>Jumlah</th>
+                      <th>Total</th>
+                      <th>Penjual</th>
+                      <th>Tindakan</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {this.state.keranjang.map((elm, key) => {
+                      return (
+                        <tr>
+                          <td>{elm.id}</td>
+                          <td>{elm.judul}</td>
+                          <td>{elm.harga_satuan}</td>
+                          <td>{elm.jumlah}</td>
+                          <td>{elm.total_harga}</td>
+                          <td>{elm.user_name}</td>
+                          <td>
+                            <button
+                              onClick={e => this.hapusKeranjang(e, elm.id)}
+                            >
+                              Hapus
+                            </button>
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
               <button onClick={this.pesan}>Pesan</button>
             </div>
           </div>

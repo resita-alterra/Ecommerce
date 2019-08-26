@@ -6,7 +6,6 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { store } from "./store";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
-import Dummy from "./pages/dummy";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Koleksi from "./pages/Koleksi";
@@ -28,7 +27,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/dummy" component={Dummy} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/koleksi" component={Koleksi} />

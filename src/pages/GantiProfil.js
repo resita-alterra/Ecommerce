@@ -10,7 +10,7 @@ class GantiProfil extends React.Component {
     this.state = {
       password: null,
       alamat: null,
-      ktp: null,
+      rekening: null,
       hp: null,
       email: null,
       foto: null
@@ -19,7 +19,7 @@ class GantiProfil extends React.Component {
     this.setEmail = this.setEmail.bind(this);
     this.setFoto = this.setFoto.bind(this);
     this.setHp = this.setHp.bind(this);
-    this.setKtp = this.setKtp.bind(this);
+    this.setRekening = this.setRekening.bind(this);
     this.setPassword = this.setPassword.bind(this);
     this.akuTerapkan = this.akuTerapkan.bind(this);
   }
@@ -32,8 +32,8 @@ class GantiProfil extends React.Component {
     this.setState({ alamat: e.target.value });
   }
 
-  setKtp(e) {
-    this.setState({ ktp: e.target.value });
+  setRekening(e) {
+    this.setState({ rekening: e.target.value });
   }
 
   setHp(e) {
@@ -57,7 +57,7 @@ class GantiProfil extends React.Component {
       user_name: self.state.user_name,
       password: self.state.password,
       alamat: self.state.alamat,
-      ktp: self.state.ktp,
+      rekening: self.state.rekening,
       hp: self.state.hp,
       email: self.state.email,
       foto: self.state.foto
@@ -92,41 +92,6 @@ class GantiProfil extends React.Component {
         console.log(error);
         alert(error);
       });
-
-    // await axios
-    //   .get(self.props.baseUrl + "/login", {
-    //     params: {
-    //       user_name: self.state.user_name,
-    //       password: self.state.password
-    //     }
-    //   })
-    //   .then(function(response) {
-    //     let token = response.data.token;
-    //     self.props.setToken(token);
-    //     self.props.login();
-    //   })
-    //   .catch(function(error) {
-    //     console.log(error);
-    //   });
-
-    // axios({
-    //   method: "post",
-    //   url: "http://0.0.0.0:6000/user",
-    //   data: {
-    //     user_name: self.state.user_name,
-    //     password: self.state.password,
-    //     alamat: self.state.alamat,
-    //     ktp: self.state.ktp,
-    //     hp: self.state.hp,
-    //     email: self.state.email,
-    //     foto: self.state.foto
-    //   },
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // });
-    // console.log(self.props);
-    // self.props.history.push("/profile");
   }
 
   render() {
@@ -140,7 +105,7 @@ class GantiProfil extends React.Component {
               <p style={{ fontSize: 20 }}>
                 Silahkan isi form berikut lalu klik tombol terapkan untuk
                 menerapkan perubahan. Silahkan kososngkan bagian yang tidak
-                ingin diubah.
+                ingin diubah. Password tidak boleh kosong !
               </p>
               <form>
                 <label for="password">Password :</label>
@@ -166,7 +131,7 @@ class GantiProfil extends React.Component {
                 <input
                   type="text"
                   id="ktp"
-                  onChange={this.setKtp}
+                  onChange={this.setRekening}
                   className="form-control"
                 />
                 <br />

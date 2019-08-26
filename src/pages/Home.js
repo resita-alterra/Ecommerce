@@ -5,12 +5,6 @@ import { actions } from "./../store";
 import HeaderPra from "./../components/HeaderPra";
 import HeaderPost from "./../components/HeaderPost";
 import "./../assets/css/header.css";
-// import novel from "./../assets/img/novel.jpg";
-// import komik from "./../assets/img/komik.jpg";
-// import pelajaran from "./../assets/img/pelajaran.png";
-// import agama from "./../assets/img/agama.jpg";
-// import sejarah from "./../assets/img/sejarah.jpg";
-// import umum from "./../assets/img/umum.gif";
 
 function Home(props) {
   console.log(props.is_login);
