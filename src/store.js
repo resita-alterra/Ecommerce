@@ -4,7 +4,7 @@ export const store = createStore({
   is_login: false,
   token: "",
   identitas: {},
-  baseUrl: "http://0.0.0.0:5000"
+  baseUrl: "https://api.uculshop.xyz"
 });
 
 export const actions = store => ({
