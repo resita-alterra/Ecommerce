@@ -64,6 +64,7 @@ function Home(props) {
                     Silahkan melihat koleksi kami di menu koleksi
                   </p>
                   <p>Untuk berbelanja, anda harus mendaftar terlebih dahulu</p>
+                  <p>ahdfgsafdsajfghgf</p>
                 </div>
               </div>
             </div>
