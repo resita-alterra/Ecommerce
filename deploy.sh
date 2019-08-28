@@ -8,4 +8,4 @@ echo "$DOCKERHUB_PASS" | docker login --username $DOCKERHUB_USER --password-stdi
 docker stop helloworld
 docker rm helloworld
 docker rmi aprynur/helloworld
-docker run -d --name helloworld -p 5000:5000 aprynur/helloworld:latest
+docker run -d --name helloworld -p 2000:2000 resitasriw/helloworld:latest
