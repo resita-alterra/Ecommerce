@@ -7,7 +7,7 @@ os:
 env:
   global:
   - DOCKER_IMAGE_NAME="helloworld"
-  - DOCKER_HUB_ORG="aprynur"
+  - DOCKER_HUB_ORG="resitasriw"
 before_script:
 - openssl aes-256-cbc -K $encrypted_364792291338_key -iv $encrypted_364792291338_iv
   -in deploy_rsa.enc -out deploy_rsa -d
